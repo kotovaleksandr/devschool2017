@@ -10,7 +10,7 @@ namespace Dropbox.DataAccess
 	public interface IFilesRepository
 	{
 		File Add(File file);
-		byte[] GetContent(Guid fileId);
+		byte[] GetContent(Guid id);
 		File GetInfo(Guid fileId);
 		void UpdateContent(Guid fileId, byte[] content);
 		IEnumerable<File> GetUserFiles(Guid id);

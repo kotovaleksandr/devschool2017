@@ -40,7 +40,21 @@ namespace Dropbox.DataAccess.Sql
 
 		public byte[] GetContent(Guid fileId)
 		{
-			throw new NotImplementedException();
+			using (var connection = new SqlConnection(_connectionString))
+			{
+				connection.Open();
+				using (var command = connection.CreateCommand())
+				{
+					command.CommandText = "select content from files where id = @id";
+					command.Parameters.AddWithValue("@id", fileId);
+					using (var reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+							return reader.GetSqlBinary(reader.GetOrdinal("content")).Value;
+						throw new ArgumentException($"file {fileId} not found");
+					}
+				}
+			}
 		}
 
 		public File GetInfo(Guid fileId)
@@ -71,7 +85,17 @@ namespace Dropbox.DataAccess.Sql
 
 		public void UpdateContent(Guid fileId, byte[] content)
 		{
-			throw new NotImplementedException();
+			using (var connection = new SqlConnection(_connectionString))
+			{
+				connection.Open();
+				using (var command = connection.CreateCommand())
+				{
+					command.CommandText = "update files set content = @content where id = @id";
+					command.Parameters.AddWithValue("@content", content);
+					command.Parameters.AddWithValue("@id", fileId);
+					command.ExecuteNonQuery();
+				}
+			}
 		}
 
 		public IEnumerable<File> GetUserFiles(Guid id)

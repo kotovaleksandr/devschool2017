@@ -22,6 +22,7 @@ namespace Dropbox.DataAccess.Sql
 			using (var connection = new SqlConnection(_connectionString))
 			{
 				connection.Open();
+
 				using (var command = connection.CreateCommand())
 				{
 					var userId = Guid.NewGuid();

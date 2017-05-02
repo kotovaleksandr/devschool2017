@@ -53,5 +53,23 @@ namespace Dropbox.DataAccess.Sql.Tests
 			Assert.AreEqual(file.Owner.Id, result.Owner.Id);
 			Assert.AreEqual(file.Name, result.Name);
 		}
+
+		[TestMethod]
+		public void ShoulUpdateFileContent()
+		{
+			//arrange
+			var file = new File
+			{
+				Name = "file with content",
+				Owner = TestUser
+			};
+			var content = Encoding.UTF8.GetBytes("Hello");
+			var newFile = _filesRepository.Add(file);
+			//act
+			_filesRepository.UpdateContent(newFile.Id, content);
+			var resultContent = _filesRepository.GetContent(newFile.Id);
+			//asserts
+			Assert.IsTrue(content.SequenceEqual(resultContent));
+		}
 	}
 }
