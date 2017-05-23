@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26510.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.Model", "Dropbox.Model\Dropbox.Model.csproj", "{F68E382B-5772-4A7F-9034-6813C877E397}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.DataAccess.Sql.Tests", "Dropbox.DataAccess.Sql.Tests\Dropbox.DataAccess.Sql.Tests.csproj", "{9E933DA7-4F5E-4F17-ACEA-053789257F02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.WebApi", "Dropbox.WebApi\Dropbox.WebApi.csproj", "{145E47FF-5A88-40A1-8A4E-526AA512C9C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.Log", "Dropbox.Log\Dropbox.Log.csproj", "{1D5D6B37-19E9-4703-9BA1-4B0A29E71C84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{145E47FF-5A88-40A1-8A4E-526AA512C9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{145E47FF-5A88-40A1-8A4E-526AA512C9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{145E47FF-5A88-40A1-8A4E-526AA512C9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5D6B37-19E9-4703-9BA1-4B0A29E71C84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5D6B37-19E9-4703-9BA1-4B0A29E71C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5D6B37-19E9-4703-9BA1-4B0A29E71C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5D6B37-19E9-4703-9BA1-4B0A29E71C84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

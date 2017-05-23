@@ -70,12 +70,13 @@ namespace Dropbox.DataAccess.Sql
 					{
 						while (reader.Read())
 						{
-							return new File
+							var info = new File
 							{
 								Id = reader.GetGuid(reader.GetOrdinal("id")),
 								Owner = _usersRepository.Get(reader.GetGuid(reader.GetOrdinal("owner"))),
 								Name = reader.GetString(reader.GetOrdinal("name"))
 							};
+							return info;
 						}
 						throw new ArgumentException("file not found");
 					}

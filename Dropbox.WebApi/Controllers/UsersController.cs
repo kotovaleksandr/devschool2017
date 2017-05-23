@@ -33,6 +33,7 @@ namespace Dropbox.WebApi.Controllers
 		}
 
 		[HttpGet]
+		[Route("api/users/{id}")]
 		public User GetUser(Guid id)
 		{
 			return _usersRepository.Get(id);
@@ -41,6 +42,7 @@ namespace Dropbox.WebApi.Controllers
 		[HttpDelete]
 		public void DeleteUser(Guid id)
 		{
+			Log.Logger.ServiceLog.Info("Delete user with id: {0}", id);
 			_usersRepository.Delete(id);
 		}
 
