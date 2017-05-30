@@ -31,5 +31,19 @@ namespace Dropbox.WebApi.Controllers
 			var bytes = await Request.Content.ReadAsByteArrayAsync();
 			_filesRepository.UpdateContent(id, bytes);
 		}
+
+		[HttpDelete]
+		[Route("api/files/{id}")]
+		public void Delete(Guid id)
+		{
+			_filesRepository.Delete(id);
+		}
+
+		[HttpGet]
+		[Route("api/files/{id}/content")]
+		public byte[] GetFileContent(Guid id)
+		{
+			return _filesRepository.GetContent(id);
+		}
 	}
 }
